@@ -4,6 +4,10 @@ const n = 20;
 // Initialize an empty array
 const array = [];
 
+// Get the speed range input element
+const speedRange = document.getElementById("speed-range");
+
+
 // Call the initialization function to fill the array with random values and show the bars
 init();
 
@@ -41,12 +45,13 @@ function animate(moves) {
   }
   // Show the bars with the current move highlighted
   showBars(move);
-  // Wait for a short time before making the next move
+  // Get the delay time from the speed range input
+  const delayTime = 1000 - speedRange.value;
+  // Wait for the delay time before making the next move
   setTimeout(function () {
     animate(moves);
-  }, 300);
+  }, delayTime);
 }
-
 // Function to perform bubble sort and generate the list of moves made
 function bubbleSort(array) {
   const moves = [];
